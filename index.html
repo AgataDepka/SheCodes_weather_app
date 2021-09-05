@@ -1,0 +1,163 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+        <title>Week 5_search engine</title>
+        <style>
+
+h2, h3, h4, h5 {
+    font-family: 'Lato', sans-serif;
+}
+h2 {
+    margin: 0px 0px 20px 0px;
+    padding: 20px 10px;
+    background-color: #F1ECC3;
+    border-radius: 3px;
+    border: 1px solid #f4f2ed;
+}
+
+.container {
+    max-width: 600px;
+
+}
+.form {
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    padding: .375rem .28rem;
+    border-radius: 0.25rem;
+    border: 1px solid;
+    vertical-align: middle;
+}
+.current-date {
+    padding: 50px 12px 0 12px;
+  
+}
+.current-weather {
+    width: 100%;
+
+}
+.card-text {
+    text-align: center;
+    font-size: 8px;
+    position: relative;
+    top: 46px;
+}
+.current {
+    font-size: 20px;
+    position: relative;
+    top: 100px;
+}
+.btn-success {
+  padding: 0.375rem 0.45em;
+}
+</style>
+
+
+    </head>
+    <body>
+       <div class="container">
+<div class="card">
+  <div class="card-body">
+<h2>
+    Check the weather in ...
+</h2>
+<div class="row">
+  <div class="col-4">
+    <h3>
+      <span id="city-name">Gdańsk</span>
+    </h3>
+  </div>
+  <div class="col-6">
+
+    <form id="city-input-form">
+        <input type="text" class="form" id="city-input" placeholder="Enter city name" autoholder>
+        <input type="submit" class="btn btn-outline-info" value="Search"/>
+    </form>
+
+  </div>
+  <div class="col-2">
+    <button class="btn btn-success">
+        Current
+    </button>
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-4">
+    <div class="card bg-light text-black">
+  <img src="images/sunnz.jpg" class="card-img" alt="test">
+  <div class="card-img-overlay">
+        <p class="card-text current" id="temp-today">32 °C</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-8 current-date">
+    <h5>
+      <span id="weekday">Monday,</span>  <span id="current-callendar-date">21.07.2021,</span> <span id=current-time>12:00</span>
+    </h5>
+    <div class="weather-conditions">
+      <div>sunny</div>
+      <div>precipitation: 0%</div>
+      <div>wind: 3 m/s</div>
+    </div>
+  </div>
+</div>
+</br>
+
+<div class="row">
+  <div class="col">
+     <div class="card bg-light text-black">
+  <img src="images/sunnz.jpg" class="card-img" alt="test">
+  <div class="card-img-overlay">
+        <p class="card-text">Tue 27°C</p>
+      </div>
+    </div>
+   </div> 
+
+  <div class="col">
+    <div class="card bg-light text-black">
+  <img src="images/sunnz.jpg" class="card-img" alt="test">
+  <div class="card-img-overlay">
+        <p class="card-text">Wed 25°C</p>
+      </div>
+  </div>
+</div>
+  <div class="col">
+     <div class="card bg-light text-black">
+  <img src="images/partly_cloudy.jpg" class="card-img" alt="test">
+  <div class="card-img-overlay">
+        <p class="card-text">Thu 21°C</p>
+      </div>
+    </div>
+</div>
+    <div class="col">
+     <div class="card bg-light text-black">
+  <img src="images/rainy.jpg" class="card-img" alt="test">
+  <div class="card-img-overlay">
+        <p class="card-text">Fri 20°C</p>
+      </div>
+    </div>
+</div>
+    <div class="col">
+     <div class="card bg-light text-black">
+      <img src="images/thunderstorms.jpg" class="card-img" alt="test">
+     <div class="card-img-overlay">
+        <p class="card-text">Sat 18°C</p>
+      </div>
+    </div>
+  </div>
+ </div>
+</div>
+</div>
+<script src="src/script.js"></script>
+    </body>
+    </html>
