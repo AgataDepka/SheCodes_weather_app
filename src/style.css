@@ -17,8 +17,12 @@ a {
   text-decoration: none;
   background-color: transparent;
 }
-.container {
+small {
+  font-size: 10px;
+}
+.weather-app {
   max-width: 600px;
+  margin: 30px auto;
 }
 .form {
   display: inline-block;
