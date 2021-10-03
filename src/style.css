@@ -11,6 +11,9 @@ h2 {
   border-radius: 3px;
   border: 1px solid #f4f2ed;
 }
+h3 {
+  text-transform: capitalize;
+}
 a {
   color: #007bff;
   text-decoration: none;
