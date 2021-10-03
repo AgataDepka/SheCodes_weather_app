@@ -39,13 +39,6 @@ let minutes = now.getMinutes();
 if (minutes < 10) {
   minutes = `0${minutes}`;
 }
-let currentTime = document.querySelector("#current-time");
-currentTime.innerHTML = `${hour}:${minutes}`;
-
-let currentDate = document.querySelector("#current-callendar-date");
-currentDate.innerHTML = `${date}.${month}.${year}`;
-
-// show city name and current temp. in that city
 
 let apiKey = "d7ead99ae6732fa4573f82431235f3c9";
 
@@ -55,10 +48,14 @@ function showInputCityTemperature(response) {
   let descriptionElement = document.querySelector("#description");
   let inputCityHumidity = document.querySelector("#humidity");
   let inputCityWind = document.querySelector("#wind");
+  let currentTime = document.querySelector("#current-time");
+  let currentDate = document.querySelector("#current-callendar-date");
   inputCityTemp.innerHTML = `${inputCityTemperature} °C`;
   descriptionElement.innerHTML = response.data.weather[0].description;
   inputCityHumidity.innerHTML = response.data.main.humidity;
   inputCityWind.innerHTML = Math.round(response.data.wind.speed);
+  currentTime.innerHTML = `${hour}:${minutes}`;
+  currentDate.innerHTML = `${date}.${month}.${year}`;
 }
 
 function inputCity(event) {
