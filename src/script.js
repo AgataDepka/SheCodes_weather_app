@@ -31,15 +31,13 @@ let apiKey = "d7ead99ae6732fa4573f82431235f3c9";
 function showInputCityTemperature(response) {
   let inputCityTemperature = Math.round(response.data.main.temp);
   let inputCityTemp = document.querySelector("#temp-today");
-  inputCityTemp.innerHTML = `${inputCityTemperature} °C`;
   let descriptionElement = document.querySelector("#description");
+  let inputCityHumidity = document.querySelector("#humidity");
+  let inputCityWind = document.querySelector("#wind");
+  inputCityTemp.innerHTML = `${inputCityTemperature} °C`;
   descriptionElement.innerHTML = response.data.weather[0].description;
-  let inputCityHum = document.querySelector("#humidity");
-  let inputCityHumidity = response.data.main.humidity;
-  inputCityHum.innerHTML = `${inputCityHumidity}`;
-  let inputCityWin = document.querySelector("#wind");
-  let inputCityWind = Math.round(response.data.wind.speed);
-  inputCityWin.innerHTML = `${inputCityWind}`;
+  inputCityHumidity.innerHTML = response.data.main.humidity;
+  inputCityWind.innerHTML = Math.round(response.data.wind.speed);
 }
 
 function inputCity(event) {
@@ -61,13 +59,11 @@ function showCurrentCityTemperature(response) {
   let tempToday = document.querySelector("#temp-today");
   tempToday.innerHTML = `${currentCityTemperature} °C`;
   let descriptionElement = document.querySelector("#description");
-  descriptionElement.innerHTML = response.data.weather[0].description;
-  let currentCityHum = document.querySelector("#humidity");
-  let currentCityHumidity = response.data.main.humidity;
-  currentCityHum.innerHTML = `${currentCityHumidity}`;
+  let currentCityHumidity = document.querySelector("#humidity");
   let currentCityWin = document.querySelector("#wind");
-  let currentCityWind = Math.round(response.data.wind.speed);
-  currentCityWin.innerHTML = `${currentCityWind}`;
+  descriptionElement.innerHTML = response.data.weather[0].description;
+  currentCityHumidity.innerHTML = response.data.main.humidity;
+  currentCityWin.innerHTML = Math.round(response.data.wind.speed);
 }
 function showCurrentCity(response) {
   let currentCity = response.data[0].name;
