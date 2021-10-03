@@ -51,7 +51,10 @@ function showInputCityTemperature(response) {
   let currentTime = document.querySelector("#current-time");
   let currentDate = document.querySelector("#current-callendar-date");
   let iconElement = document.querySelector("#icon");
-  inputCityTemp.innerHTML = `${inputCityTemperature} °C`;
+
+  celsiusTemperature = response.data.main.temp;
+
+  inputCityTemp.innerHTML = `${inputCityTemperature}`;
   descriptionElement.innerHTML = response.data.weather[0].description;
   inputCityHumidity.innerHTML = response.data.main.humidity;
   inputCityWind.innerHTML = Math.round(response.data.wind.speed);
@@ -73,18 +76,26 @@ function inputCity(event) {
 let enterCity = document.querySelector("#city-input-form");
 enterCity.addEventListener("submit", inputCity);
 
-// bonus task, make current location button display current city and temperature
-
 function showCurrentCityTemperature(response) {
   let currentCityTemperature = Math.round(response.data.main.temp);
   let tempToday = document.querySelector("#temp-today");
-  tempToday.innerHTML = `${currentCityTemperature} °C`;
+  tempToday.innerHTML = `${currentCityTemperature}`;
   let descriptionElement = document.querySelector("#description");
   let currentCityHumidity = document.querySelector("#humidity");
   let currentCityWin = document.querySelector("#wind");
+  let currentTime = document.querySelector("#current-time");
+  let currentDate = document.querySelector("#current-callendar-date");
+  let iconElement = document.querySelector("#icon");
+
+  celsiusTemperature = response.data.main.temp;
+
   descriptionElement.innerHTML = response.data.weather[0].description;
   currentCityHumidity.innerHTML = response.data.main.humidity;
   currentCityWin.innerHTML = Math.round(response.data.wind.speed);
+  currentTime.innerHTML = `${hour}:${minutes}`;
+  currentDate.innerHTML = `${date}.${month}.${year}`;
+  iconElement.src = `images/${response.data.weather[0].icon}.png`;
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 function showCurrentCity(response) {
   let currentCity = response.data[0].name;
@@ -108,3 +119,28 @@ function getCurrentPosition() {
 
 let button = document.querySelector("button");
 button.addEventListener("click", getCurrentPosition);
+
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temp-today");
+
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrenheiTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheiTemperature);
+}
+
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  let temperatureElement = document.querySelector("#temp-today");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+let celsiusTemperature = null;
+
+let fahrenheitLink = document.querySelector("#fahrenheit");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+let celsiusLink = document.querySelector("#celsius");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);

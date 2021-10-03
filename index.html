@@ -50,8 +50,13 @@
   <div class="col-4">
     <div class="card bg-light text-black">
   <img src="images/sunnz.jpg" class="card-img" alt="Weather icon" id="icon">
-  <div class="card-img-overlay">
-        <p class="card-text current" id="temp-today">32 °C</p>
+  <div class="card-img-overlay temperature">
+        <span class="card-text current" id="temp-today">32</span>
+        <span class="temp-unit current">
+          <a href="#" id="celsius" class="active">°C</a>
+          |
+          <a href="#" id="fahrenheit">°F</a>
+        </span>
       </div>
     </div>
   </div>
