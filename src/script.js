@@ -50,12 +50,14 @@ function showInputCityTemperature(response) {
   let inputCityWind = document.querySelector("#wind");
   let currentTime = document.querySelector("#current-time");
   let currentDate = document.querySelector("#current-callendar-date");
+  let iconElement = document.querySelector("#icon");
   inputCityTemp.innerHTML = `${inputCityTemperature} °C`;
   descriptionElement.innerHTML = response.data.weather[0].description;
   inputCityHumidity.innerHTML = response.data.main.humidity;
   inputCityWind.innerHTML = Math.round(response.data.wind.speed);
   currentTime.innerHTML = `${hour}:${minutes}`;
   currentDate.innerHTML = `${date}.${month}.${year}`;
+  iconElement.src = `images/${response.data.weather[0].icon}.png`;
 }
 
 function inputCity(event) {
