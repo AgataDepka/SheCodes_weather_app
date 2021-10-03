@@ -58,6 +58,7 @@ function showInputCityTemperature(response) {
   currentTime.innerHTML = `${hour}:${minutes}`;
   currentDate.innerHTML = `${date}.${month}.${year}`;
   iconElement.src = `images/${response.data.weather[0].icon}.png`;
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 function inputCity(event) {
