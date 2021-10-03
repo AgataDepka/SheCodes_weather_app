@@ -54,6 +54,8 @@ function showCurrentCityTemperature(response) {
   let currentCityTemperature = Math.round(response.data.main.temp);
   let tempToday = document.querySelector("#temp-today");
   tempToday.innerHTML = `${currentCityTemperature} °C`;
+  let descriptionElement = document.querySelector("#description");
+  descriptionElement.innerHTML = response.data.weather[0].description;
 }
 function showCurrentCity(response) {
   let currentCity = response.data[0].name;
