@@ -36,10 +36,10 @@ function showInputCityTemperature(response) {
   descriptionElement.innerHTML = response.data.weather[0].description;
   let inputCityHum = document.querySelector("#humidity");
   let inputCityHumidity = response.data.main.humidity;
-  inputCityHum.innerHTML = `humidity: ${inputCityHumidity} %`;
+  inputCityHum.innerHTML = `${inputCityHumidity}`;
   let inputCityWin = document.querySelector("#wind");
   let inputCityWind = Math.round(response.data.wind.speed);
-  inputCityWin.innerHTML = `wind: ${inputCityWind} m/s`;
+  inputCityWin.innerHTML = `${inputCityWind}`;
 }
 
 function inputCity(event) {
@@ -64,10 +64,10 @@ function showCurrentCityTemperature(response) {
   descriptionElement.innerHTML = response.data.weather[0].description;
   let currentCityHum = document.querySelector("#humidity");
   let currentCityHumidity = response.data.main.humidity;
-  currentCityHum.innerHTML = `humidity: ${currentCityHumidity} %`;
+  currentCityHum.innerHTML = `${currentCityHumidity}`;
   let currentCityWin = document.querySelector("#wind");
   let currentCityWind = Math.round(response.data.wind.speed);
-  currentCityWin.innerHTML = `wind: ${currentCityWind} m/s`;
+  currentCityWin.innerHTML = `${currentCityWind}`;
 }
 function showCurrentCity(response) {
   let currentCity = response.data[0].name;
