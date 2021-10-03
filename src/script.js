@@ -8,7 +8,25 @@ let days = [
   "Friday",
   "Saturday",
 ];
+let months = [
+  "01",
+  "02",
+  "03",
+  "04",
+  "05",
+  "06",
+  "07",
+  "08",
+  "09",
+  "10",
+  "11",
+  "12",
+];
+
 let day = days[now.getDay()];
+let date = now.getDate();
+let month = months[now.getMonth()];
+let year = now.getFullYear();
 
 let currentDay = document.querySelector("#weekday");
 currentDay.innerHTML = `${day}`;
@@ -23,6 +41,9 @@ if (minutes < 10) {
 }
 let currentTime = document.querySelector("#current-time");
 currentTime.innerHTML = `${hour}:${minutes}`;
+
+let currentDate = document.querySelector("#current-callendar-date");
+currentDate.innerHTML = `${date}.${month}.${year}`;
 
 // show city name and current temp. in that city
 
