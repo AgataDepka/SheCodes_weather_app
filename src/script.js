@@ -1,5 +1,3 @@
-
-
 let now = new Date();
 let days = [
   "Sunday",
@@ -26,15 +24,16 @@ if (minutes < 10) {
 let currentTime = document.querySelector("#current-time");
 currentTime.innerHTML = `${hour}:${minutes}`;
 
-
 // show city name and current temp. in that city
 
 let apiKey = "d7ead99ae6732fa4573f82431235f3c9";
 
-function showInputCityTemperature (response) {
+function showInputCityTemperature(response) {
   let inputCityTemperature = Math.round(response.data.main.temp);
   let inputCityTemp = document.querySelector("#temp-today");
   inputCityTemp.innerHTML = `${inputCityTemperature} °C`;
+  let descriptionElement = document.querySelector("#description");
+  descriptionElement.innerHTML = response.data.weather[0].description;
 }
 
 function inputCity(event) {
@@ -44,10 +43,10 @@ function inputCity(event) {
   h3.innerHTML = `${writeCity.value}`;
   let apiUrlInputCity = `https://api.openweathermap.org/data/2.5/weather?q=${writeCity.value}&appid=${apiKey}&units=metric`;
 
-axios.get(apiUrlInputCity).then(showInputCityTemperature);  
+  axios.get(apiUrlInputCity).then(showInputCityTemperature);
 }
 let enterCity = document.querySelector("#city-input-form");
-enterCity.addEventListener("submit", inputCity); 
+enterCity.addEventListener("submit", inputCity);
 
 // bonus task, make current location button display current city and temperature
 
@@ -56,21 +55,20 @@ function showCurrentCityTemperature(response) {
   let tempToday = document.querySelector("#temp-today");
   tempToday.innerHTML = `${currentCityTemperature} °C`;
 }
-function showCurrentCity(response){
-let currentCity = response.data[0].name;
-let positionCity = document.querySelector("h3");
-positionCity.innerHTML = `${currentCity}`;
+function showCurrentCity(response) {
+  let currentCity = response.data[0].name;
+  let positionCity = document.querySelector("h3");
+  positionCity.innerHTML = `${currentCity}`;
 }
-  
+
 function showCurrentPosition(position) {
   let actualLat = position.coords.latitude;
   let actualLon = position.coords.longitude;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${actualLat}&lon=${actualLon}&appid=${apiKey}&units=metric`;
   let apiUrlCurrentCity = `https://api.openweathermap.org/geo/1.0/reverse?lat=${actualLat}&lon=${actualLon}&limit=1&appid=${apiKey}`;
-  
 
-axios.get(apiUrl).then(showCurrentCityTemperature);
-axios.get(apiUrlCurrentCity).then(showCurrentCity);
+  axios.get(apiUrl).then(showCurrentCityTemperature);
+  axios.get(apiUrlCurrentCity).then(showCurrentCity);
 }
 
 function getCurrentPosition() {
