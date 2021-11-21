@@ -30,6 +30,7 @@ small {
 }
 .weather-app {
   max-width: 600px;
+  min-width: 400px;
   margin: 30px auto;
 }
 .form {
@@ -61,6 +62,7 @@ small {
 }
 .btn-success {
   padding: 0.375rem 0.45em;
+  margin-right: 30px;
 }
 .temperature .active {
   color: rgb(33, 33, 33);
