@@ -42,6 +42,34 @@ if (minutes < 10) {
 
 let apiKey = "d7ead99ae6732fa4573f82431235f3c9";
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+  <div class="col">
+     <div class="card bg-light">
+  <img src="images/01d.png" class="card-img-top" alt="tomorrow">
+  <div class="card-body">
+         <div class="card-text" id="next-day">${day}</div>
+        <div class="card-text">
+             <span id="next-temp-min">22°</span> 
+             <span id="next-temp-max">25°C</span>
+        </div> 
+      </div>
+    </div>
+   </div> 
+ `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function showInputCityTemperature(response) {
   let inputCityTemperature = Math.round(response.data.main.temp);
   let inputCityTemp = document.querySelector("#temp-today");
@@ -138,6 +166,8 @@ function displayCelsiusTemperature(event) {
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 let celsiusTemperature = null;
+
+displayForecast();
 
 let fahrenheitLink = document.querySelector("#fahrenheit");
 fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);

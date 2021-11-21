@@ -79,11 +79,12 @@ small {
 }
 #next-day {
   font-size: 13px;
-  color: grey;
+  color: rgb(90, 88, 88);
   font-weight: bold;
 }
 #next-temp-min {
   font-size: 9px;
+  opacity: 0.5;
 }
 #next-temp-max {
   font-size: 9px;
