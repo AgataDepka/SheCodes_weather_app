@@ -60,11 +60,13 @@ small {
   position: relative;
   top: 0px;
 }
+.card-body .temperature {
+  text-align: center;
+}
 .current {
   font-size: 20px;
   position: relative;
   top: 0px;
-  left: 12px;
 }
 .temperature .active {
   color: rgb(33, 33, 33);
