@@ -59,7 +59,7 @@ function showInputCityTemperature(response) {
   inputCityHumidity.innerHTML = response.data.main.humidity;
   inputCityWind.innerHTML = Math.round(response.data.wind.speed);
   currentTime.innerHTML = `${hour}:${minutes}`;
-  currentDate.innerHTML = `${date}.${month}.${year}`;
+  currentDate.innerHTML = `${date}.${month}.${year}, `;
   iconElement.src = `images/${response.data.weather[0].icon}.png`;
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
@@ -93,7 +93,7 @@ function showCurrentCityTemperature(response) {
   currentCityHumidity.innerHTML = response.data.main.humidity;
   currentCityWin.innerHTML = Math.round(response.data.wind.speed);
   currentTime.innerHTML = `${hour}:${minutes}`;
-  currentDate.innerHTML = `${date}.${month}.${year}`;
+  currentDate.innerHTML = `${date}.${month}.${year}, `;
   iconElement.src = `images/${response.data.weather[0].icon}.png`;
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
