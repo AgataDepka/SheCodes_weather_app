@@ -10,9 +10,9 @@ h5 {
 h2 {
   margin: 0px 0px 20px 0px;
   padding: 20px 10px;
-  background-color: #d3f2a9;
-  border-radius: 3px;
-  border: 1px solid #d3f2a9;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  border: 1px solid rgb(236, 232, 232);
 }
 h3 {
   text-transform: capitalize;
@@ -48,6 +48,9 @@ small {
 .current-weather {
   width: 100%;
 }
+.card {
+  background-color: #fffae0;
+}
 .card-text {
   text-align: center;
   font-size: 10px;
@@ -59,10 +62,6 @@ small {
   position: relative;
   top: 0px;
   left: 12px;
-}
-.btn-success {
-  padding: 0.375rem 0.45em;
-  margin-right: 30px;
 }
 .temperature .active {
   color: rgb(33, 33, 33);
