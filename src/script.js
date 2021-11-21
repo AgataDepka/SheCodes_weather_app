@@ -42,7 +42,8 @@ if (minutes < 10) {
 
 let apiKey = "d7ead99ae6732fa4573f82431235f3c9";
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data);
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
@@ -70,6 +71,14 @@ function displayForecast() {
   forecastElement.innerHTML = forecastHTML;
 }
 
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "d7ead99ae6732fa4573f82431235f3c9";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function showInputCityTemperature(response) {
   let inputCityTemperature = Math.round(response.data.main.temp);
   let inputCityTemp = document.querySelector("#temp-today");
@@ -90,13 +99,24 @@ function showInputCityTemperature(response) {
   currentDate.innerHTML = `${date}.${month}.${year}, `;
   iconElement.src = `images/${response.data.weather[0].icon}.png`;
   iconElement.setAttribute("alt", response.data.weather[0].description);
+
+  getForecast(response.data.coord);
 }
+
+function search(city) {
+  let apiKey = "d7ead99ae6732fa4573f82431235f3c9";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showCurrentCityTemperature);
+  axios.get(apiUrl).then(displayForecast);
+}
+search("Anchorage");
 
 function inputCity(event) {
   event.preventDefault();
   let writeCity = document.querySelector("#city-input");
   let h3 = document.querySelector("h3");
   h3.innerHTML = `${writeCity.value}`;
+  let apiKey = "d7ead99ae6732fa4573f82431235f3c9";
   let apiUrlInputCity = `https://api.openweathermap.org/data/2.5/weather?q=${writeCity.value}&appid=${apiKey}&units=metric`;
 
   axios.get(apiUrlInputCity).then(showInputCityTemperature);
@@ -139,6 +159,7 @@ function showCurrentPosition(position) {
 
   axios.get(apiUrl).then(showCurrentCityTemperature);
   axios.get(apiUrlCurrentCity).then(showCurrentCity);
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function getCurrentPosition() {
@@ -166,8 +187,6 @@ function displayCelsiusTemperature(event) {
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 let celsiusTemperature = null;
-
-displayForecast();
 
 let fahrenheitLink = document.querySelector("#fahrenheit");
 fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
