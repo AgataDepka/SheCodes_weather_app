@@ -120,7 +120,9 @@ function showInputCityTemperature(response) {
 function search(city) {
   let apiKey = "d7ead99ae6732fa4573f82431235f3c9";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  let apiUrlStart = `https://api.openweathermap.org/data/2.5/onecall?lat=61.2181&lon=-149.9003&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showCurrentCityTemperature);
+  axios.get(apiUrlStart).then(displayForecast);
 }
 search("Anchorage");
 
