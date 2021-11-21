@@ -45,7 +45,7 @@ let apiKey = "d7ead99ae6732fa4573f82431235f3c9";
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
   return days[day];
 }
 
