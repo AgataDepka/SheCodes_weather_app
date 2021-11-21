@@ -13,6 +13,8 @@ h2 {
   background-color: #f8f9fa;
   border-radius: 5px;
   border: 1px solid rgb(236, 232, 232);
+  color: grey;
+  font-weight: bold;
 }
 h3 {
   text-transform: capitalize;
