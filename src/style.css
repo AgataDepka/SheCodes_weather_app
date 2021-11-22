@@ -68,14 +68,7 @@ small {
   position: relative;
   top: 0px;
 }
-.temperature .active {
-  color: rgb(33, 33, 33);
-  cursor: default;
-}
 
-.temperature .active:hover {
-  text-decoration: none;
-}
 #next-day {
   font-size: 13px;
   color: rgb(90, 88, 88);
